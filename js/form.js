@@ -22,7 +22,7 @@ if (day < 10) day = "0" + day;
 let today2 = day + "." + month + "." + year;
 todate.innerText = today2
 
-const close = '<button class="delete is-medium"></button>'
+// const close = '<button class="delete is-medium"></button>'
 const divClose = '</div>'
 const br ='<br/>'
 
@@ -51,6 +51,7 @@ function validate(){
     else{
     taskID++ 
     let div1 = `<div class="column card is-4" id="taskno-${taskID}">` 
+    let close = `<button class="delete is-medium" id="closeno-${taskID}"></button>` 
     taskBox.innerHTML += 
     div1 + close + br + taskName.value + br + taskDesc.value + br + taskDate.value + divClose
 
