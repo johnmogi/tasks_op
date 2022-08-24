@@ -25,7 +25,7 @@ else{
     div1 + taskName.value + divClose
     task_Name = {'name': taskName.value}
     tasksArr.push(task_Name)
-    
+
 }
 }
 
