@@ -14,14 +14,17 @@
         MyTask organiser
       </h1>
       <p class="subtitle">
-        Hi, wellcome to MyTask, may you find all the <strong>focus</strong> you need...
+        Hi, wellcome to MyTask
       </p>
+      
+      <div class="box" id="output-box">
+          may you find all the <strong>focus</strong> you need...
+        </div>
     </div>
   </section>
-<section>
-    <div class="box" id="output-box"></div>
-</section>
-  <section>
+
+<section class="section">
+    <div class="container">
     <div class="box">
         <form id="taskCreator">
             <div class="field is-grouped">
@@ -31,6 +34,14 @@
                     <input class="input is-medium" id="taskName" type="text" placeholder="Task Name">
                 </div>
             </div>
+            <div class="field">
+                <label class="label is-medium">Task Date</label>
+                <div class="control">
+                    <input class="input is-medium" id="taskDate" type="text" placeholder="Task Date">
+                </div>
+            </div>
+        </div>
+            <div class="field is-grouped">
 
             <div class="field">
                 <label class="label is-medium">Task Description</label>
@@ -54,13 +65,15 @@
             </div>
         </div>
     </form>
+</div>
     </section>
-    <section>
-        <div class="box">
+    <section class="section">
+        <div class="container">
+        <div class="card">
             <div class="columns is-multiline" id="task-box">
-
         </div>
         </div>
+    </div>
     </section>
     <footer>
           <script src="./js/form.js" ></script>
