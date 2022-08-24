@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Task Board Maker</title>
+    <link rel="stylesheet" href="./style/bulma.css">
+    <link rel="stylesheet" href="./style/custom.css">
+  </head>
+  <body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        MyTask organiser
+      </h1>
+      <p class="subtitle">
+        Hi, wellcome to MyTask, may you find all the <strong>focus</strong> you need...
+      </p>
+    </div>
+  </section>
+<section>
+    <div class="box" id="output-box"></div>
+</section>
+  <section>
+    <div class="box">
+        <form id="taskCreator">
+
+            <div class="field">
+                <label class="label is-medium">Task Name</label>
+                <div class="control">
+                    <input class="input is-medium" id="taskName" type="text" placeholder="Text input">
+                </div>
+            </div>
+            
+            <div class="field is-grouped">
+                <div class="control">
+                    <button class="button is-link is-medium" id="taskSubmit">Submit</button>
+                </div>
+                <div class="control">
+                    <button class="button is-link is-light is-medium">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    </section>
+    <section>
+        <div class="box">
+            <div class="columns is-multiline" id="task-box">
+
+        </div>
+        </div>
+    </section>
+    <footer>
+          <script src="./js/form.js" ></script>
+    </footer>
+
+  </body>
+</html>
