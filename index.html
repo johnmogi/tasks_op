@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Task Board Maker</title>
+    <title>📝 Task Board Maker</title>
     <link rel="stylesheet" href="./style/bulma.css">
     <link rel="stylesheet" href="./style/custom.css">
   </head>
@@ -11,10 +11,10 @@
   <section class="section">
     <div class="container">
       <h1 class="title">
-        MyTask organiser
+        📝 MyTask organiser
       </h1>
       <p class="subtitle">
-        Hi, wellcome to MyTask
+        Hi, wellcome to MyTask, Captain's log on: <span id="todate">what's up for today...</span>
       </p>
       
       <div class="box" id="output-box">
@@ -31,13 +31,14 @@
             <div class="field">
                 <label class="label is-medium">Task Name</label>
                 <div class="control">
-                    <input class="input is-medium" id="taskName" type="text" placeholder="Task Name">
+                    <input class="input is-medium" id="taskName" type="text" placeholder="Task Name" required>
                 </div>
             </div>
             <div class="field">
                 <label class="label is-medium">Task Date</label>
                 <div class="control">
-                    <input class="input is-medium" id="taskDate" type="text" placeholder="Task Date">
+                    <input class="input " id="taskDate" type="date" placeholder="Task Date" required>
+
                 </div>
             </div>
         </div>
@@ -46,7 +47,7 @@
             <div class="field">
                 <label class="label is-medium">Task Description</label>
                 <div class="control">
-                    <textarea class="textarea is-medium"  id="taskDesc"  placeholder="Task Description" rows ='4'></textarea>
+                    <textarea class="textarea is-medium"  id="taskDesc"  placeholder="Task Description" rows ='4' required></textarea>
 
                 </div>
                 
