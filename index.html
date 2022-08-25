@@ -27,43 +27,59 @@
     <div class="container">
     <div class="box">
         <form id="taskCreator">
-            <div class="field is-grouped">
+            <div class="field is-grouped is-grouped-multiline">
+                <div class="field-body">
+
             <div class="field">
-                <label class="label is-medium">Task Name</label>
+                <label class="label is-normal">Task Name</label>
                 <div class="control">
                     <input class="input is-medium" id="taskName" type="text" placeholder="Task Name" required>
                 </div>
             </div>
+        </div>
+        <div class="field-body">
+
             <div class="field">
-                <label class="label is-medium">Task Date</label>
+                <label class="label is-normal">Task Date</label>
                 <div class="control">
-                    <input class="input " id="taskDate" type="date" placeholder="Task Date" required>
+                    <input class="input is-medium" id="taskDate" type="date" placeholder="Task Date" required>
 
                 </div>
             </div>
+            </div>
         </div>
-            <div class="field is-grouped">
+            <div class="field is-grouped is-grouped-multiline ">
+                <div class="field-body">
 
             <div class="field">
-                <label class="label is-medium">Task Description</label>
+                <label class="label is-normal">Task Description</label>
                 <div class="control">
                     <textarea class="textarea is-medium"  id="taskDesc"  placeholder="Task Description" rows ='4' required></textarea>
 
                 </div>
-                
+            </div>
+            </div>
+            <div class="field-body">
+
+                <div class="field">
+                    <label class="label is-normal">Task Due Time</label>
+                    <div class="control">
+                        <input id="taskTime" type="text" class="input is-medium" data-provide="timepicker"
+                        data-defaultTime="current" placeholder="current">
+                    </div>
+                </div>
+            </div>
             </div>
 
-            
-        </div>
-            
-            <div class="field is-grouped">
+            <div class="field is-grouped is-grouped-multiline">
                 <div class="control">
                     <button class="button is-link is-medium" id="taskSubmit">Submit</button>
                 </div>
                 <div class="control">
-                    <button class="button is-link is-light is-medium">Cancel</button>
+                    <button class="button is-link is-light is-medium" onclick="return false" type="reset">Cancel</button>
                 </div>
             </div>
+        </div>
         </div>
     </form>
 </div>

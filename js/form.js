@@ -1,18 +1,19 @@
-
-const body = document.querySelector('body')
-const taskCreator = document.getElementById('taskCreator')
-const outputBox = document.getElementById('output-box')
-const taskBox = document.getElementById('task-box')
-const todate = document.getElementById('todate')
-const taskName = document.getElementById('taskName')
-const taskDesc = document.getElementById('taskDesc')
-const taskDate = document.getElementById('taskDate')
-const taskSubmit = document.getElementById('taskSubmit')
+const body = document.querySelector("body");
+const taskCreator = document.getElementById("taskCreator");
+const outputBox = document.getElementById("output-box");
+const taskBox = document.getElementById("task-box");
+const todate = document.getElementById("todate");
+const taskName = document.getElementById("taskName");
+const taskDesc = document.getElementById("taskDesc");
+const taskDate = document.getElementById("taskDate");
+const taskTime = document.getElementById("taskTime");
+const taskSubmit = document.getElementById("taskSubmit");
 
 const today = new Date();
-let time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-new Date().getTime()
-Date.now()
+let time =
+  today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+new Date().getTime();
+Date.now();
 let date = new Date();
 let day = date.getDate();
 let month = date.getMonth() + 1;
@@ -20,57 +21,78 @@ let year = date.getFullYear();
 if (month < 10) month = "0" + month;
 if (day < 10) day = "0" + day;
 let today2 = day + "." + month + "." + year;
-todate.innerText = today2
+todate.innerText = today2;
 
 // const close = '<button class="delete is-medium"></button>'
-const divClose = '</div>'
-const br ='<br/>'
+const divClose = "</div>";
+const br = "<br/>";
 
-const tasksArr = []
-const tasksDOM = []
+const tasksArr = [];
+const tasksDOM = [];
 let valid = false;
-let taskID = 0
+let taskID = 0;
 
-function clean(){
+function clean() {}
+function deleteMe(obj) {
+  let objnum = obj.parentNode.id.split('-');
+  let num = Number(objnum[1])
+  num--
+  tasksArr.splice(num, 1);
+  obj.parentNode.parentNode.removeChild(obj.parentNode);
 }
-function validate(){
-    if (!taskName.value){
-        outputBox.innerHTML = "the Task name is empty ";
-        return valid = false;
-    }
-    
-    if (!taskDesc.value){
-        outputBox.innerHTML = "the Task Description is empty ";
-        return valid = false;
-    }
+function validate() {
+  if (!taskName.value) {
+    outputBox.innerHTML = "the Task name is empty ";
+    return (valid = false);
+  }
 
-    if (!taskDate.value){
-        outputBox.innerHTML = "the Task Date is empty ";
-        return valid = false;
-    }
-    else{
-    taskID++ 
-    let div1 = `<div class="column card is-4" id="taskno-${taskID}">` 
-    let close = `<button class="delete is-medium" id="closeno-${taskID}"></button>` 
-    taskBox.innerHTML += 
-    div1 + close + br + taskName.value + br + taskDesc.value + br + taskDate.value + divClose
+  if (!taskDesc.value) {
+    outputBox.innerHTML = "the Task Description is empty ";
+    return (valid = false);
+  }
 
-    return valid = true;
+  if (!taskDate.value) {
+    outputBox.innerHTML = "the Task Date is empty ";
+    return (valid = false);
+  } else {
+    taskID++;
+    let div1 = `<div class="column card is-4" id="taskno-${taskID}">`;
+    let close = `<button class="delete is-medium" id="closeno-${taskID}" onclick="deleteMe(this)"></button>`;
+    taskBox.innerHTML +=
+      div1 +
+      close +
+      br +
+      taskName.value +
+      br +
+      taskDesc.value +
+      br +
+      taskTime.value +
+      br +
+      taskDate.value +
+      divClose;
+    return (valid = true);
+  }
 }
-}
+console.log(close);
 
-taskSubmit.addEventListener("click", (event) => {
+taskSubmit.addEventListener(
+  "click",
+  (event) => {
     event.preventDefault();
     validate();
-    if (!valid) {return outputBox.innerHTML += br + "Some of the fields are empty"; }
-    let taskData = {
-        'task name': taskName.value,
-        'task description': taskDesc.value,
-        'task date': taskDate.value
-
+    if (!valid) {
+      return (outputBox.innerHTML += br + "Some of the fields are empty");
     }
-    tasksArr.push(taskData)
+    let taskData = {
+      "task name": taskName.value,
+      "task description": taskDesc.value,
+      "task date": taskDate.value,
+      "task time": taskTime.value,
+    };
+    tasksArr.push(taskData);
     console.log(tasksArr);
+  },
+  false
+);
 
-  }, false);
-
+// document.querySelector(`#closeno-`)
