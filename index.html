@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>📝 Task Board Maker</title>
     <link rel="stylesheet" href="./style/bulma.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style/custom.css">
   </head>
   <body>
   <section class="section">
-    <div class="container">
+    <div class="container bulma-overlay-mixin">
       <h1 class="title">
         📝 MyTask organiser
       </h1>
@@ -29,8 +30,11 @@
   </section>
 
 <section class="section">
-    <div class="container">
-    <div class="box">
+    <div class="container" id="main">
+    <div class="box bulma-overlay-mixin " >
+        <h2 class="subtitle">
+            Tasks Creator: 
+          </h2>
         <form id="taskCreator">
             <div class="field is-grouped is-grouped-multiline">
                 <div class="field-body">
@@ -91,11 +95,17 @@
     </form>
 </div>
     </section>
-    <section class="section">
+    <section class="section stage">
         <div class="container">
-        <div class="card">
-            <div class="columns is-multiline" id="task-box">
+            <div class="card">
+
+                <div class="container bulma-overlay-mixin">
+            <h4 class="subtitle">
+                Active Tasks: 
+              </h4>
+            <div class="columns is-multiline bulma-overlay-mixin" id="task-box">
         </div>
+    </div>
         </div>
     </div>
     </section>

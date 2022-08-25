@@ -8,6 +8,8 @@ const taskDesc = document.getElementById("taskDesc");
 const taskDate = document.getElementById("taskDate");
 const taskTime = document.getElementById("taskTime");
 const taskSubmit = document.getElementById("taskSubmit");
+const title4 = '<p class="title is-4">';
+const title4cl = "</p>";
 
 const today = new Date();
 let time =
@@ -27,7 +29,7 @@ taskDate.innerHTML = today2;
 
 taskDate.valueAsDate = new Date();
 // const close = '<button class="delete is-medium"></button>'
-const divClose = "</div>";
+const divClose = "</div></div>";
 const br = "<br/>";
 
 const tasksArr = [];
@@ -41,7 +43,7 @@ function deleteMe(obj) {
   let num = Number(objnum[1]);
   num--;
   tasksArr.splice(num, 1);
-  obj.parentNode.parentNode.removeChild(obj.parentNode);
+  obj.parentNode.parentNode.parentNode.removeChild(obj.parentNode.parentNode);
 }
 function validate() {
   if (!taskName.value) {
@@ -63,10 +65,9 @@ function validate() {
     outputBox.style.color = "#dc3545";
     taskDate.style.borderColor = "#dc3545";
     return !valid;
-  }
-  else {
+  } else {
     taskID++;
-    let div1 = `<div class="column card is-4" id="taskno-${taskID}">`;
+    let div1 = `<div class="column card is-4" id="taskno-${taskID}"><div class="card-content">`;
     let close = `<button class="delete is-medium" id="closeno-${taskID}" onclick="deleteMe(this)"></button>`;
     outputBox.innerHTML = `task: ${taskName.value} created on ${time}`;
     outputBox.style.color = "#000";
@@ -77,7 +78,9 @@ function validate() {
       div1 +
       close +
       br +
+      title4 +
       taskName.value +
+      title4cl +
       br +
       taskDesc.value +
       br +

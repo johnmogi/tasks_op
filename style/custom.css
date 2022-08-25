@@ -1,3 +1,17 @@
+html{
+    @include overlay(1.5rem);
+    background: url(../images/tile.jpg);
+}
+body {
+    @include overlay(1.5rem);
+    background-color: rgba(255, 255, 255, 0.150);
+    font-family: "Roboto", arial, sans-serif;
+
+}
+#main{
+    background: url(../images/formbg.jpg);
+    background-size: 25%;
+}
 .control {
     max-width: 95%;
 }
@@ -6,10 +20,20 @@
 }
 
 .bulma-overlay-mixin {
-    @include overlay(1.5rem);
-    background-color: lightsalmon;
+    @include overlay(2rem);
+    background-color: white;
     border-radius: 0.25em;
     color: white;
-    opacity: 0.9;
+    opacity: 0.95;
     padding: 1em;
+    min-height: 5vh;
+  }
+
+  .stage .card{
+    background-color:hsl(48, 100%, 67%);
+
+  }
+
+  .is-medium.delete{
+    float: right;
   }
