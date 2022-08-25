@@ -66,7 +66,7 @@ which led me to create the following function:
 
 <pre>
 # using string literal on object build to create a dynamic unique id:
-let close = `<button class="delete is-medium" id="closeno-${taskID}" onclick="deleteMe(this)"></button>`;
+let close = `button class="delete is-medium" id="closeno-${taskID}" onclick="deleteMe(this)">/button>`;
 
 function deleteMe(obj) { // passing the object into the function
   let objnum = obj.parentNode.id.split('-'); // retrieving the number from the id
