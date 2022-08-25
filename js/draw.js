@@ -8,9 +8,9 @@ const taskDesc = document.getElementById("taskDesc");
 const taskDate = document.getElementById("taskDate");
 const taskTime = document.getElementById("taskTime");
 const taskSubmit = document.getElementById("taskSubmit");
-let storageTasks = localStorage.getItem("tasks")
+let storageTasks = localStorage.getItem("tasks");
 
-const tasksArr = [];
+let tasksArr = [];
 let tasksDOM = [];
 let valid;
 let taskID = 0;
@@ -32,58 +32,99 @@ todate.innerText = today2;
 taskDate.innerHTML = today2;
 taskDate.valueAsDate = new Date();
 
-function cleanData() {
+function clean() {
   localStorage.removeItem("tasks");
+  taskBox.innerHTML = "";
+  tasksArr = [];
 }
-// cleanData();
 
-// check if ls has items
-if (storageTasks){
-tasksDOM = JSON.parse(storageTasks);
-}
 // console.log(tasksDOM);
-
-function build(item) {
-  console.log(item[0]);
+function validate(task) {
+  if (!task ) {
+    outputBox.innerHTML = "the Task name is empty ";
+    outputBox.style.color = "#dc3545";
+    taskName.style.borderColor = "#dc3545";
+    return !valid;
+  }
+  // if (!taskDesc.value) {
+  //   outputBox.innerHTML = "the Task Description is empty ";
+  //   outputBox.style.color = "#dc3545";
+  //   taskDesc.style.borderColor = "#dc3545";
+  //   return !valid;
+  // }
+  // if (!taskDate.value) {
+  //   outputBox.innerHTML = "the Task Date is empty ";
+  //   outputBox.style.color = "#dc3545";
+  //   taskDate.style.borderColor = "#dc3545";
+  //   return !valid;
+  // } else {
+  //   return (valid = true);
+  // }
 }
-function buildTask(){
-  // validation
+
+function draw() {
+  
+  if (!valid){return}
   let taskData = {
-    "task name": taskName.value,
-    "task description": taskDesc.value,
-    "task date": taskDate.value,
-    "task time": taskTime.value,
+    task_name: taskName.value,
+    task_description: taskDesc.value,
+    task_date: taskDate.value,
+    task_time: taskTime.value,
   };
   tasksArr.push(taskData);
-  console.log(tasksArr);
+  localStorage.setItem("tasks", JSON.stringify(tasksArr));
+  tasksDOM = JSON.parse(storageTasks);
+
+  taskID++;
+  const title4 = '<p class="title is-4">';
+  const title4cl = "</p>";
+  const divClose = "</div></div>";
+  const br = "<br/>";
+
+  let div1 = `<div class="column card is-4" id="taskno-${taskID}"><div class="card-content">`;
+  let close = `<button class="delete is-medium" id="closeno-${taskID}" onclick="deleteMe(this)"></button>`;
+  outputBox.innerHTML = `task: ${taskName.value} created on ${time}`;
+  outputBox.style.color = "#000";
+  taskDate.style.borderColor = "initial";
+  taskDesc.style.borderColor = "initial";
+  taskName.style.borderColor = "initial";
+
+  for (let i = 0; i < tasksArr.length; i++) {
+    const task = tasksArr[i];
+
+    taskBox.innerHTML +=
+      div1 +
+      close +
+      br +
+      title4 +
+      task.task_name +
+      title4cl +
+      br +
+      task.task_description +
+      br +
+      task.task_time +
+      br +
+      task.task_date +
+      divClose;
+  }
 }
-// if it does- build tasks using the array
-function draw() {
-  // taskBox.innerHTML += tasksDOM.length
-// buildTasks()
-//   for (var i = 0; i < tasksDOM.length; i++) {
-//     var key = localStorage.key(i);
-//     var item = JSON.parse(localStorage.getItem(key));
-//     // if (item == "") {return}
-//     build(item);
-//   }
-}
-draw();
 
 taskSubmit.addEventListener(
   "click",
   (event) => {
     event.preventDefault();
-
-    buildTask();
-
-    // tasksArr.push(taskData);
-    // localStorage.setItem("tasks", JSON.stringify(tasksArr));
-
-    // console.log(tasksArr);
+    console.log(tasksArr);
+    draw();
   },
   false
 );
 
-// if it doesn't accept new tasks
-// build tasks from input form
+draw();
+
+if (storageTasks) {
+  tasksDOM = JSON.parse(storageTasks);
+  for (let i = 0; i < tasksArr.length; i++) {
+    const task = tasksArr[i];
+    validate(task)
+  }
+}
