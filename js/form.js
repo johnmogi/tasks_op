@@ -21,43 +21,58 @@ let year = date.getFullYear();
 if (month < 10) month = "0" + month;
 if (day < 10) day = "0" + day;
 let today2 = day + "." + month + "." + year;
-todate.innerText = today2;
 
+todate.innerText = today2;
+taskDate.innerHTML = today2;
+
+taskDate.valueAsDate = new Date();
 // const close = '<button class="delete is-medium"></button>'
 const divClose = "</div>";
 const br = "<br/>";
 
 const tasksArr = [];
 const tasksDOM = [];
-let valid = false;
+let valid;
 let taskID = 0;
 
 function clean() {}
 function deleteMe(obj) {
-  let objnum = obj.parentNode.id.split('-');
-  let num = Number(objnum[1])
-  num--
+  let objnum = obj.parentNode.id.split("-");
+  let num = Number(objnum[1]);
+  num--;
   tasksArr.splice(num, 1);
   obj.parentNode.parentNode.removeChild(obj.parentNode);
 }
 function validate() {
   if (!taskName.value) {
     outputBox.innerHTML = "the Task name is empty ";
-    return (valid = false);
+    outputBox.style.color = "#dc3545";
+    taskName.style.borderColor = "#dc3545";
+    return !valid;
   }
 
   if (!taskDesc.value) {
     outputBox.innerHTML = "the Task Description is empty ";
-    return (valid = false);
+    outputBox.style.color = "#dc3545";
+    taskDesc.style.borderColor = "#dc3545";
+    return !valid;
   }
 
   if (!taskDate.value) {
     outputBox.innerHTML = "the Task Date is empty ";
-    return (valid = false);
-  } else {
+    outputBox.style.color = "#dc3545";
+    taskDate.style.borderColor = "#dc3545";
+    return !valid;
+  }
+  else {
     taskID++;
     let div1 = `<div class="column card is-4" id="taskno-${taskID}">`;
     let close = `<button class="delete is-medium" id="closeno-${taskID}" onclick="deleteMe(this)"></button>`;
+    outputBox.innerHTML = `task: ${taskName.value} created on ${time}`;
+    outputBox.style.color = "#000";
+    taskDate.style.borderColor = "initial";
+    taskDesc.style.borderColor = "initial";
+    taskName.style.borderColor = "initial";
     taskBox.innerHTML +=
       div1 +
       close +
@@ -80,9 +95,11 @@ taskSubmit.addEventListener(
   (event) => {
     event.preventDefault();
     validate();
+    console.log(valid);
     if (!valid) {
       return (outputBox.innerHTML += br + "Some of the fields are empty");
     }
+
     let taskData = {
       "task name": taskName.value,
       "task description": taskDesc.value,

@@ -14,12 +14,17 @@
         📝 MyTask organiser
       </h1>
       <p class="subtitle">
-        Hi, wellcome to MyTask, Captain's log on: <span id="todate">what's up for today...</span>
+   
+          </span>Hi, wellcome to MyTask, Captain's log on: <span id="todate">what's up for today...</span>
       </p>
       
-      <div class="box" id="output-box">
-          may you find all the <strong>focus</strong> you need...
+      <div class="message is-info box bulma-overlay-mixin ">
+        <div class="message-body" id="output-box">
+            may you find all the <strong>focus</strong> you need...
         </div>
+      </div>
+
+     
     </div>
   </section>
 
@@ -42,8 +47,7 @@
             <div class="field">
                 <label class="label is-normal">Task Date</label>
                 <div class="control">
-                    <input class="input is-medium" id="taskDate" type="date" placeholder="Task Date" required>
-
+    <input  class="input is-medium" type="date" id="taskDate" value="" min="" required>
                 </div>
             </div>
             </div>
@@ -64,8 +68,8 @@
                 <div class="field">
                     <label class="label is-normal">Task Due Time</label>
                     <div class="control">
-                        <input id="taskTime" type="text" class="input is-medium" data-provide="timepicker"
-                        data-defaultTime="current" placeholder="current">
+                        <input id="taskTime" type="time" class="input is-medium" data-provide="timepicker"
+                        data-defaultTime="current" placeholder="">
                     </div>
                 </div>
             </div>
@@ -73,11 +77,14 @@
 
             <div class="field is-grouped is-grouped-multiline">
                 <div class="control">
-                    <button class="button is-link is-medium" id="taskSubmit">Submit</button>
+                    <button class="button is-success is-link is-medium" id="taskSubmit">Submit</button>
                 </div>
                 <div class="control">
-                    <button class="button is-link is-light is-medium" onclick="return false" type="reset">Cancel</button>
+                    <button class="button is-link is-light is-medium" onclick="clean()" type="reset">Clean</button>
                 </div>
+                <!-- <div class="control">
+                    <button class="button is-link is-light is-medium" onclick="return false" type="reset">Delete all</button>
+                </div> -->
             </div>
         </div>
         </div>
