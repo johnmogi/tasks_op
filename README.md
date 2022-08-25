@@ -179,3 +179,7 @@ the whole board doesn't get recalculated and built step by step but at one!
 there is less need for locating an item and manipulating (in the manner of which problem 3 was solved)
 
 and obviously the biggest advantage is to return a sorted array to the dom- but actualy this can also be done with the same manner as of now (:
+
+5. rebuild draw:
+
+since manual adding the tasks does populate the array but getting it from local storage doesnt' exit to a feature branch for rebuild
