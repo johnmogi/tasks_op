@@ -35,7 +35,7 @@
         <h2 class="subtitle">
             Tasks Creator: 
           </h2>
-        <form id="taskCreator">
+        <form id="taskCreator" ame="taskCreator" novalidate>
             <div class="field is-grouped is-grouped-multiline">
                 <div class="field-body">
 
@@ -81,7 +81,7 @@
 
             <div class="field is-grouped is-grouped-multiline">
                 <div class="control">
-                    <button class="button is-success is-link is-medium" id="taskSubmit">Submit</button>
+                    <button class="button is-success is-link is-medium" id="taskSubmit" onclick="return false">Submit</button>
                 </div>
                 <div class="control">
                     <button class="button is-link is-light is-medium" onclick="clean()" type="reset">Clean</button>
@@ -110,7 +110,7 @@
     </div>
     </section>
     <footer>
-          <script src="./js/form.js" ></script>
+          <script src="./js/draw.js" ></script>
     </footer>
 
   </body>

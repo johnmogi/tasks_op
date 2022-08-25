@@ -183,3 +183,14 @@ and obviously the biggest advantage is to return a sorted array to the dom- but 
 5. rebuild draw:
 
 since manual adding the tasks does populate the array but getting it from local storage doesnt' exit to a feature branch for rebuild
+
+
+so refractoring the mechanism for the following flow:
+
+the program checks for localstorage array namesd 'tasks'
+
+if there are items in that array it builds the tasks from that array.
+
+regardless a user can build new tasks - add them to the DOM, to the array and the localstorage.
+
+preferably both functions of the build stage should be the same.
