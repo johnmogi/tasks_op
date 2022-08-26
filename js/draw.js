@@ -39,32 +39,35 @@ function clean() {
 }
 
 // console.log(tasksDOM);
-function validate(task) {
-  if (!task ) {
+function validate() {
+  if (!taskName.value) {
     outputBox.innerHTML = "the Task name is empty ";
     outputBox.style.color = "#dc3545";
     taskName.style.borderColor = "#dc3545";
     return !valid;
   }
-  // if (!taskDesc.value) {
-  //   outputBox.innerHTML = "the Task Description is empty ";
-  //   outputBox.style.color = "#dc3545";
-  //   taskDesc.style.borderColor = "#dc3545";
-  //   return !valid;
-  // }
-  // if (!taskDate.value) {
-  //   outputBox.innerHTML = "the Task Date is empty ";
-  //   outputBox.style.color = "#dc3545";
-  //   taskDate.style.borderColor = "#dc3545";
-  //   return !valid;
-  // } else {
-  //   return (valid = true);
-  // }
+  if (!taskDesc.value) {
+    outputBox.innerHTML = "the Task Description is empty ";
+    outputBox.style.color = "#dc3545";
+    taskDesc.style.borderColor = "#dc3545";
+    return !valid;
+  }
+  if (!taskDate.value) {
+    outputBox.innerHTML = "the Task Date is empty ";
+    outputBox.style.color = "#dc3545";
+    taskDate.style.borderColor = "#dc3545";
+    return !valid;
+  } else {
+    return (valid = true);
+  }
 }
+
+// you need to send a task to draw and iterate
 
 function draw() {
   
   if (!valid){return}
+
   let taskData = {
     task_name: taskName.value,
     task_description: taskDesc.value,
@@ -74,6 +77,7 @@ function draw() {
   tasksArr.push(taskData);
   localStorage.setItem("tasks", JSON.stringify(tasksArr));
   tasksDOM = JSON.parse(storageTasks);
+  console.log(tasksDOM);
 
   taskID++;
   const title4 = '<p class="title is-4">';
@@ -113,18 +117,18 @@ taskSubmit.addEventListener(
   "click",
   (event) => {
     event.preventDefault();
-    console.log(tasksArr);
+    validate();
     draw();
   },
   false
 );
 
-draw();
 
 if (storageTasks) {
   tasksDOM = JSON.parse(storageTasks);
-  for (let i = 0; i < tasksArr.length; i++) {
-    const task = tasksArr[i];
-    validate(task)
+  for (let i = 0; i < tasksDOM.length; i++) {
+    valid = true
+    const task = tasksDOM[i];
+    draw();
   }
 }
