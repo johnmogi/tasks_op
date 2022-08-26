@@ -84,7 +84,7 @@ function draw() {
 
   let div1 = `<div class="column card is-4" id="taskno-${taskID}"><div class="card-content">`;
   let close = `<button class="delete is-medium" id="closeno-${taskID}" onclick="deleteMe(this)"></button>`;
-  outputBox.innerHTML = `task: ${taskName.value} created on ${time}`;
+  outputBox.innerHTML = `New task: ${taskName.value} created on ${time}`;
   outputBox.style.color = "#000";
   taskDate.style.borderColor = "initial";
   taskDesc.style.borderColor = "initial";
@@ -114,8 +114,6 @@ function draw() {
 let storageTasks = localStorage.getItem("tasks");
 if (storageTasks) {
   tasksArr = JSON.parse(storageTasks);
-
-  console.log(tasksArr);
   draw()
 }
 
