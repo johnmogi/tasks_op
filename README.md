@@ -11,3 +11,4 @@ and it looked like this:
 
 ![old tasks project](./images/old.png.jpg?raw=true "old tasks project")
 
+<img src="images/old.png.jpg">
