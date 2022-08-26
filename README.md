@@ -117,7 +117,7 @@ function redraw() {
 
 		returnedArray.push(item);
 	}
-	returnedArray.reverse();
+	returnedArray.reverse(); 
 	generate();
 }
 // what is generate() ? here:
