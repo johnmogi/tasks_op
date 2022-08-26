@@ -117,3 +117,7 @@ in case of delete task - the tasks is removed from the dom. localstorage and arr
 validation could run in a much better efficient way - with iteration.
 
 part 3 of the localstorage delete item could also probably be more efficient to delete one task instead of everything
+
+
+# housekeeping - considering removing archive branches:
+https://stackoverflow.com/questions/1307114/how-can-i-archive-git-branches
