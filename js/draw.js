@@ -8,10 +8,8 @@ const taskDesc = document.getElementById("taskDesc");
 const taskDate = document.getElementById("taskDate");
 const taskTime = document.getElementById("taskTime");
 const taskSubmit = document.getElementById("taskSubmit");
-let storageTasks = localStorage.getItem("tasks");
 
 let tasksArr = [];
-let tasksDOM = [];
 let valid;
 let taskID = 0;
 
@@ -38,7 +36,7 @@ function clean() {
   tasksArr = [];
 }
 
-// console.log(tasksDOM);
+// try to run on all 3 in one code
 function validate() {
   if (!taskName.value) {
     outputBox.innerHTML = "the Task name is empty ";
@@ -62,12 +60,9 @@ function validate() {
   }
 }
 
-// you need to send a task to draw and iterate
-
-function draw() {
-  
+// you need to send a task to arr and iterate from there
+function populateArr(){
   if (!valid){return}
-
   let taskData = {
     task_name: taskName.value,
     task_description: taskDesc.value,
@@ -76,9 +71,11 @@ function draw() {
   };
   tasksArr.push(taskData);
   localStorage.setItem("tasks", JSON.stringify(tasksArr));
-  tasksDOM = JSON.parse(storageTasks);
-  console.log(tasksDOM);
+}
 
+function draw() {
+  
+  taskBox.innerHTML = '';
   taskID++;
   const title4 = '<p class="title is-4">';
   const title4cl = "</p>";
@@ -113,22 +110,33 @@ function draw() {
   }
 }
 
+// activators - either by click or memory:
+let storageTasks = localStorage.getItem("tasks");
+if (storageTasks) {
+  tasksArr = JSON.parse(storageTasks);
+
+  console.log(tasksArr);
+  draw()
+}
+
 taskSubmit.addEventListener(
   "click",
   (event) => {
     event.preventDefault();
     validate();
+    populateArr()
     draw();
   },
   false
 );
 
+function deleteMe(obj) {
+  let objnum = obj.parentNode.id.split("-");
+  let num = Number(objnum[1]);
+  num--;
+  tasksArr.splice(num, 1);
+  obj.parentNode.parentNode.parentNode.removeChild(obj.parentNode.parentNode);
+  localStorage.removeItem("tasks");
+  localStorage.setItem("tasks", JSON.stringify(tasksArr));
 
-if (storageTasks) {
-  tasksDOM = JSON.parse(storageTasks);
-  for (let i = 0; i < tasksDOM.length; i++) {
-    valid = true
-    const task = tasksDOM[i];
-    draw();
-  }
 }
