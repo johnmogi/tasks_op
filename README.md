@@ -1,5 +1,13 @@
 # tasks_op
 
+tasks project rebuild is done, however I would like to develop the following:
+
+- rebuild the project in react- CRA.
+- use redis instead of localstorage - this would involve a backend nodejs.
+- package it in docker
+- deploy to k8s
+- git actions CI Cd
+
 history:
 exited to feature barch, you can see the changes there-
 troubleshoot_array under guides holds the build process (concept)
