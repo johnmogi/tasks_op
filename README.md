@@ -9,6 +9,4 @@ let's examine the old code repository:
 
 and it looked like this:
 
-![old tasks project](/images/old.png?raw=true "old tasks project")
-
-<img src="images/old.png">
+<img src="images/old.png" width="350" alt="old tasks project">
