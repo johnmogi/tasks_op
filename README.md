@@ -1,5 +1,10 @@
 # tasks_op
 
+history:
+exited to feature barch, you can see the changes there-
+troubleshoot_array under guides holds the build process (concept)
+
+
 rebuild projects - 01 - the tasks app
 
 1. rebuild the project.
